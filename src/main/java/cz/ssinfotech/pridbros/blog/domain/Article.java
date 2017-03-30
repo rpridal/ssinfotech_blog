@@ -41,4 +41,8 @@ public class Article {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	@Override
+	public String toString() {
+		return "Article [id=" + id + ", caption=" + caption + ", body=" + body + ", autor=" + autor + "]";
+	}
 }

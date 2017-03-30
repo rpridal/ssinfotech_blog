@@ -21,5 +21,15 @@ public class HelloController {
 		articleRepository.save(article);
 		return "Article was saved;";
 	}
+	
+	@RequestMapping("/show")
+	public String show() {
+		String result = "";
+		Iterable<Article> findAll = articleRepository.findAll();
+		for(Article article:findAll) {
+			result += article.toString();
+		}
+		return result;
+	}
 
 }

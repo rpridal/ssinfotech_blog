@@ -44,4 +44,7 @@ public class Author {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	public String toString() {
+		return "Author [id=" + id + ", name=" + name+ ", email=" + email + ", articles=" + articles+ "]";
+	}
 }

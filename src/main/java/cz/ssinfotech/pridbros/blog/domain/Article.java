@@ -43,6 +43,6 @@ public class Article {
 	}
 	@Override
 	public String toString() {
-		return "Article [id=" + id + ", caption=" + caption + ", body=" + body + ", autor=" + autor + "]";
-	}
+	return "Article [id=" + id + ", caption=" + caption + ", body=" + body + ", autor=" + autor.getName() + "]";
+}
 }

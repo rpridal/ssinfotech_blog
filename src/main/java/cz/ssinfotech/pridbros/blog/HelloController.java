@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import cz.ssinfotech.pridbros.blog.domain.Article;
+import cz.ssinfotech.pridbros.blog.domain.Author;
 import cz.ssinfotech.pridbros.blog.repository.ArticleRepository;
+import cz.ssinfotech.pridbros.blog.repository.AuthorRepository;
 
 @RestController
 public class HelloController {
@@ -31,5 +33,24 @@ public class HelloController {
 		}
 		return result;
 	}
-
+	
+	@Autowired
+	AuthorRepository authorRepository;
+	
+	@RequestMapping("/autor")
+	public String autor(@RequestParam("name") String name) {
+		Author author = new Author();
+		author.setName(name);
+		authorRepository.save(author);
+		return "Autor was saved;";
+	}
+	@RequestMapping("/showaurtor")
+	public String showaurtor() {
+		String result = "";
+		Iterable<Author> findAll = authorRepository.findAll();
+		for(Author author:findAll) {
+			result += author.toString();
+		}
+		return result;
+	}
 }
